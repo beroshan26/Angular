@@ -1,1 +1,10 @@
-<p>about works!</p>
+<h3
+  [ngClass]="{
+    gray: !h1Style,
+    large: h1Style
+  }"
+>
+  About
+</h3>
+
+<button (click)="buttonClick()">Toggle style</button>
