@@ -8,13 +8,15 @@ import { DataService } from "../data.service";
 })
 export class FixerComponent implements OnInit {
   rates: object;
-
+  ratesArray: Array<{ CCY: string; Rate: number }> = [];
   constructor(private data: DataService) {}
 
   ngOnInit() {
-    this.data.getDataFromFixer().subscribe(data => {
+    this.data.getDataFromFixer().subscribe((data: any) => {
       this.rates = data;
-      console.log(this.rates);
+      Object.keys(data.rates).forEach(res => {
+        this.ratesArray.push({ CCY: res, Rate: data.rates[res] });
+      });
     });
   }
 }

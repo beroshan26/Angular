@@ -1,1 +1,19 @@
-<p>exchange-rate works!</p>
+<div *ngIf="rates">
+  <p>Base Currency - {{ rates.base }}</p>
+  <p>As of Date - {{ rates.date }}</p>
+</div>
+
+<table *ngIf="ratesArray">
+  <tr>
+    <th>Currency Code</th>
+    <th>Exchange Rate</th>
+  </tr>
+  <tr *ngFor="let item of ratesArray">
+    <td>
+      {{ item.CCY }}
+    </td>
+    <td>
+      {{ item.Rate }}
+    </td>
+  </tr>
+</table>
